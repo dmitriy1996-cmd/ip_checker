@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ip-sentryx"
+version = "0.1.0"
+description = "Modular mass IP/proxy reputation scanner with optional providers and DNS leak markers"
+readme = "README.md"
+authors = [{ name = "Alex", email = "dev@example.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["requests>=2.32.0"]
+keywords = ["security", "ip", "reputation", "proxy", "dnsbl"]
+
+[project.optional-dependencies]
+dns = ["dnspython>=2.6.1"]
+dev = ["ruff>=0.6.9", "mypy>=1.11.2", "pytest>=8.3.2", "types-requests"]
+
+[project.scripts]
+ip-sentryx = "ipsentryx.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+warn_unused_ignores = true
+warn_redundant_casts = true
+strict = true
+ignore_missing_imports = true
